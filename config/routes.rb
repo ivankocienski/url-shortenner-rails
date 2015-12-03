@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   post '/' => 'shortener#do_shorten', as: :shorten
   post '/c' => 'shortener#do_json_shorten', as: :json_shorten
 
-  get '/l' => 'shortener#lookup', as: :lookup
+  get '/l/:id' => 'shortener#lookup', as: :lookup
 
 end

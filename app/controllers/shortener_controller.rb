@@ -13,6 +13,17 @@ class ShortenerController < ApplicationController
     render json: { url: @short_url } 
   end
 
+  def lookup
+    id = params[:id]
+    url = Shortener.lookup(id)
+
+    if url
+      redirect_to url
+    else
+      render status: :not_found, nothing: true
+    end
+  end
+
   private
 
   def input_url

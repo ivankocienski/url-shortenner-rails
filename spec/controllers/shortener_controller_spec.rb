@@ -43,5 +43,21 @@ RSpec.describe ShortenerController, type: :controller do
     end
   end
 
+  describe 'GET #lookup' do
+    it 'responds with redirect when successful' do
+      url = 'http://example.com'
+      id  = Shortener.create(url)
+
+      get :lookup, { id: id.to_s }
+
+      expect( response ).to redirect_to( url )
+    end
+
+    it 'responds with 404 when not found' do
+      get :lookup, { id: '1234' }
+
+      expect( response ).to be_not_found
+    end
+  end
 
 end

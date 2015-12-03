@@ -38,7 +38,7 @@ module Shortener
   end
 
   def next_url_id
-    @next_url_id = (@next_url_id || 0) + 1
+    (@next_url_id = (@next_url_id || 0) + 1).to_s
   end
   
 end

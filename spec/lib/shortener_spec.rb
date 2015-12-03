@@ -44,7 +44,7 @@ describe Shortener do
     it 'returns ID to url' do
       id = subject.create 'http://example.com/1'
 
-      expect( id ).to eq 1
+      expect( id ).to eq '1'
     end
 
     it 'does not create duplicates' do
