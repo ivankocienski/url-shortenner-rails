@@ -1,0 +1,58 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  width: 960px;
+  margin: 0px auto;
+}
+
+#header {
+  background: url(/images/sky.jpg) scroll no-repeat;
+  padding: 2em;
+  border-radius: 2px;
+  margin-top: 3px;
+}
+
+#header h1 {
+  font-size: 3em;
+  color: white;
+  /*color: #114088;*/
+  /*background-color: white; */
+  display: inline-block;
+  padding: 3px;
+  margin: 0px 0px 1em 0px;
+}
+
+
+a {
+  color: #00B7FF;
+}
+
+#input-form label {
+  display: none;
+}
+
+#input-form input {
+  border: 1px solid #444;
+  padding: 1em;
+  margin-right: 1em;
+  width: 750px;
+  border-radius: 2px;
+}
+
+#input-form button {
+  float: right;
+  border: 1px solid #444;
+  background: white;
+  padding: 1em;
+  font-weight: bold; 
+  border-radius: 2px;
+}
+
+p#shortenned {
+  text-align: center;
+  font-size: 4em;
+  padding-top: 1em;
+}
+
+
+
+

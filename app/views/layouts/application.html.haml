@@ -1,0 +1,16 @@
+!!!
+%head
+  %meta{ charset: 'utf-8' }
+
+  %title url shortenner
+
+  = csrf_meta_tags
+
+  = stylesheet_link_tag "app", :media => "all"
+
+  = javascript_include_tag 'https://code.jquery.com/jquery-2.1.4.min.js'
+
+  %script{ src: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" }
+
+%body
+  #page= yield
