@@ -10,3 +10,9 @@
 
 - if @short_url
   %p#shortenned= link_to @short_url, @short_url
+
+:javascript
+  $(document).ready( function() {
+    form_submitter.csrf = '#{form_authenticity_token}';
+    $('#input-form form').submit( form_submitter.submit );
+  });

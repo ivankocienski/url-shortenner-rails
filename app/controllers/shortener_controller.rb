@@ -1,17 +1,16 @@
 class ShortenerController < ApplicationController
 
+  before_filter :shorten_url, only: [ :do_shorten, :do_json_shorten ] 
+
   def index
   end
 
   def do_shorten
-    if input_url_given?
-      @url = input_url
-      id = Shortener.create( @url )
+    render action: :index 
+  end
 
-      @short_url = "http://localhost:3000/#{id}"
-    end
-
-    render action: :index
+  def do_json_shorten 
+    render json: { url: @short_url } 
   end
 
   private
@@ -22,6 +21,15 @@ class ShortenerController < ApplicationController
 
   def input_url_given?
     input_url.length > 0
+  end
+
+  def shorten_url
+    if input_url_given?
+      @url = input_url
+      id = Shortener.create( @url )
+
+      @short_url = "http://localhost:3000/#{id}"
+    end
   end
 
 end

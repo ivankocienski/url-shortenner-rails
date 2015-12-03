@@ -2,6 +2,10 @@ require 'spec_helper'
 
 RSpec.describe ShortenerController, type: :controller do
 
+  before :each do
+    Shortener.clear
+  end
+
   describe "GET #index" do
     it "returns http success" do
       get :index
@@ -22,8 +26,22 @@ RSpec.describe ShortenerController, type: :controller do
       post :do_shorten, { url: in_url }
       expect( assigns[:url] ).to eq in_url
       expect( assigns[:short_url] ).to eq 'http://localhost:3000/1'
-    end
-    
+    end 
   end
+
+  describe 'POST #do_json_shorten' do
+    it 'shortens url, responds with JSON' do
+      in_url = 'http://example.com'
+      post :do_json_shorten, { url: in_url }
+
+      expect( response.headers['Content-Type']).to have_content( 'application/json' )
+
+      data = JSON.parse( response.body )
+      expect( data ).to eq({
+        'url' => 'http://localhost:3000/1'
+      })
+    end
+  end
+
 
 end
